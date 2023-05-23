@@ -5,7 +5,7 @@ import InformationPanel from '@/components/InformationPanel';
 import RainChart from '@/components/RainChart';
 import StatCard from '@/components/StatCard';
 import TempChart from '@/components/TempChart';
-import fetchWeatherQuery from '@/graphql/queries/fetchWeatherQueries';
+import fetchWeatherQuery from '@/graphql/queries/fetchWeatherQuery';
 
 type Props = {
   params: {

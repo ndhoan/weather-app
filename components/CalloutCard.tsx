@@ -1,3 +1,5 @@
+'use client'
+
 import { CheckCircleIcon, ExclamationCircleIcon } from '@heroicons/react/solid';
 import { Callout } from '@tremor/react';
 type Props = {

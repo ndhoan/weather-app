@@ -1,3 +1,5 @@
+'use client';
+
 import CityPicker from '@/components/CityPicker';
 import { Card, Text, Subtitle, Divider } from '@tremor/react';
 
