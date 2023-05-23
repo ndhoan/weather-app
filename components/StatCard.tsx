@@ -1,19 +1,20 @@
-'use client'
+'use client';
 
-import { Card, Color, Metric, Text } from '@tremor/react';
+import { Card, Metric, Text, Color } from '@tremor/react';
 
-type Props = {
+interface StatCardProps {
   title: string;
   metric: string;
   color?: Color;
-};
-function StatCard({ title, metric, color }: Props) {
+}
+
+const StatCard: React.FC<StatCardProps> = ({ title, metric, color }) => {
   return (
     <Card decorationColor={color} decoration='top'>
       <Text>{title}</Text>
       <Metric>{metric}</Metric>
     </Card>
   );
-}
+};
 
 export default StatCard;

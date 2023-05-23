@@ -1,11 +1,13 @@
 import { getClient } from '@/apollo-client';
-import CalloutCard from '@/components/CalloutCard';
-import HumidityChart from '@/components/HumidityChart';
-import InformationPanel from '@/components/InformationPanel';
-import RainChart from '@/components/RainChart';
-import StatCard from '@/components/StatCard';
-import TempChart from '@/components/TempChart';
 import fetchWeatherQuery from '@/graphql/queries/fetchWeatherQuery';
+import {
+  CalloutCard,
+  StatCard,
+  InformationPanel,
+  TempChart,
+  RainChart,
+  HumidityChart,
+} from '@/components';
 
 type Props = {
   params: {
@@ -15,10 +17,11 @@ type Props = {
   };
 };
 
-async function WeatherPage({ params: { city, lat, long } }: Props) {
+const WeatherPage = async ({ params: { city, lat, long } }: Props) => {
   const client = getClient();
-
-  const { data } = await client.query({
+  const {
+    data: { myQuery: result },
+  } = await client.query<QueryResult>({
     query: fetchWeatherQuery,
     variables: {
       current_weather: 'true',
@@ -28,15 +31,13 @@ async function WeatherPage({ params: { city, lat, long } }: Props) {
     },
   });
 
-  const result: Root = data.myQuery;
-
   return (
     <div className='flex flex-col min-h-screen md:flex-row'>
       <InformationPanel city={city} lat={lat} long={long} result={result} />
       <div className='flex-1 p-5 lg:p-10'>
         <div className='p-4'>
           <div className='pb-5'>
-            <h2 className='text-xl font-bold'>Current Weather Overview</h2>
+            <h2 className='text-xl font-bold'>Todays Overview</h2>
             <p className='text-sm text-gray-400'>
               Last Updated at:{' '}
               {new Date(result.current_weather.time).toLocaleString()} (
@@ -94,6 +95,6 @@ async function WeatherPage({ params: { city, lat, long } }: Props) {
       </div>
     </div>
   );
-}
+};
 
 export default WeatherPage;

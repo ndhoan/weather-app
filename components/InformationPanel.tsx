@@ -3,14 +3,19 @@ import CityPicker from './CityPicker';
 import weatherCodeToString, { WeatherCode } from '@/lib/weatherCodeToString';
 import { MoonIcon, SunIcon } from '@heroicons/react/solid';
 
-type Props = {
+interface InformationPanelProps {
   city: string;
   lat: string;
   long: string;
   result: Root;
-};
+}
 
-function InformationPanel({ city, lat, long, result }: Props) {
+const InformationPanel: React.FC<InformationPanelProps> = ({
+  city,
+  lat,
+  long,
+  result,
+}) => {
   return (
     <div className='bg-gradient-to-br from-[#394F68] to-[#183B7E] text-white p-10'>
       <div className='pb-5'>
@@ -104,6 +109,6 @@ function InformationPanel({ city, lat, long, result }: Props) {
       </div>
     </div>
   );
-}
+};
 
 export default InformationPanel;

@@ -23,7 +23,7 @@ const TempChart: React.FC<TempChartProps> = ({ result }) => {
     'Temperature (C)': result.hourly.temperature_2m[index],
   }));
 
-  const dataFormatter = (number: number) => `${number} `;
+  const dataFormatter = (number: number) => `${number} °C`;
 
   return (
     <Card>

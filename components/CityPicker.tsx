@@ -1,10 +1,10 @@
 'use client';
 
-import { GlobeIcon } from '@heroicons/react/solid';
-import { City, Country } from 'country-state-city';
+import { useEffect, useState } from 'react';
+import { Country, City } from 'country-state-city';
+import Select, { GroupBase } from 'react-select';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
-import Select from 'react-select';
+import { GlobeIcon } from '@heroicons/react/solid';
 
 type CountryOption = {
   value: {
@@ -74,7 +74,6 @@ const CityPicker = () => {
             <label htmlFor='country'>City</label>
           </div>
           <Select
-            menuPlacement='top'
             className='text-black'
             options={City.getCitiesOfCountry(
               selectedCountry.value.isoCode
