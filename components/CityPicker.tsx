@@ -74,6 +74,7 @@ const CityPicker = () => {
             <label htmlFor='country'>City</label>
           </div>
           <Select
+            menuPlacement='top'
             className='text-black'
             options={City.getCitiesOfCountry(
               selectedCountry.value.isoCode
