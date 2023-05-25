@@ -44,12 +44,12 @@ const WeatherPage = async ({ params: { city, lat, long } }: Props) => {
               {result.timezone})
             </p>
           </div>
-          <div className='m-2 mb-10'>
-            <CalloutCard message='This is where GPT summary will go.' />
-          </div>
+          {/* <div className='m-2 mb-10'>
+            <CalloutCard message='This is where summary will go.' />
+          </div> */}
           <div className='grid grid-cols-1 xl:grid-cols-2 gap-5 m-2'>
             <StatCard
-              title='Maximum Tempurature'
+              title='Maximum Temperature'
               metric={`${result.daily.temperature_2m_max[0].toFixed(1)}°`}
               color='yellow'
             />
